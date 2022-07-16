@@ -1,4 +1,4 @@
-FROM jamesmart/ubuntu-git-bash:latest
+FROM jamesmart/0c-ubuntu-git-bash:latest
 
 # Install Wasi SDK 
 WORKDIR /opt
