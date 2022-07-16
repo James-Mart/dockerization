@@ -13,15 +13,11 @@ RUN curl -fLO https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk
     && rm wasi-sdk-14.0-linux.tar.gz
 ENV WASI_SDK_PREFIX=/opt/wasi-sdk-14.0
 
-RUN export DEBIAN_FRONTEND=noninteractive \
-    && apt-get update           \
-    && apt-get install -yq      \
-        software-properties-common
-
-RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
-
 # Install dependencies for C++/wasm development
 RUN export DEBIAN_FRONTEND=noninteractive \
+    && apt-get update           \
+    && apt-get install -yq software-properties-common    \
+    && add-apt-repository -y ppa:ubuntu-toolchain-r/test \
     && apt-get update           \
     && apt-get install -yq      \
         autoconf                \
@@ -31,7 +27,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         cmake                   \
         g++-11                  \
         gcc-11                  \
-        libboost-all-dev        \
         libcurl4-openssl-dev    \
         libgbm-dev              \
         libgmp-dev              \
