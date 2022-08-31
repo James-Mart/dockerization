@@ -23,7 +23,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         autoconf                \
         binaryen                \
         build-essential         \
-        ccache                  \
         cmake                   \
         g++-11                  \
         gcc-11                  \
@@ -39,7 +38,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         pkg-config              \
         zstd                    \
     && apt-get clean -yq        \
-    && rm -rf /var/lib/apt/lists/   
+    && rm -rf /var/lib/apt/lists/*
 
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 100      \
     && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 100   \
@@ -92,4 +91,4 @@ RUN curl --proto '=https' --tlsv1.2 -sSf -o rustup.sh https://sh.rustup.rs \
     && chmod -R 777 $CARGO_HOME \
     && rm rustup.sh
 
-ENV PATH=/opt/cargo/bin:/opt/node-v14.16.0-linux-x64/bin:/opt/clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04/bin:$PATH
+ENV PATH=/opt/cargo/bin:/opt/clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04/bin:$PATH
