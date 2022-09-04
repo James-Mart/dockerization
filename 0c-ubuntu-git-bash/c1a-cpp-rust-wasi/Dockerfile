@@ -86,7 +86,11 @@ WORKDIR /root
 RUN curl --proto '=https' --tlsv1.2 -sSf -o rustup.sh https://sh.rustup.rs \
     && chmod 700 rustup.sh \
     && ./rustup.sh -y --no-modify-path \
-    && ${CARGO_HOME}/bin/cargo install mdbook sccache \
+    && ${CARGO_HOME}/bin/cargo install \
+        mdbook              \
+        sccache             \
+        mdbook-linkcheck    \
+        mdbook-mermaid      \
     && chmod -R 777 $RUSTUP_HOME \
     && chmod -R 777 $CARGO_HOME \
     && rm rustup.sh
