@@ -73,6 +73,7 @@ RUN ./b2                    \
     --with-date_time        \
     --with-filesystem       \
     --with-iostreams        \
+    --with-log              \
     --with-program_options  \
     --with-system           \
     --with-test             \
