@@ -97,3 +97,5 @@ RUN curl --proto '=https' --tlsv1.2 -sSf -o rustup.sh https://sh.rustup.rs \
     && rm rustup.sh
 
 ENV PATH=/opt/cargo/bin:/opt/clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04/bin:$PATH
+
+RUN rustup target add wasm32-wasi
