@@ -101,3 +101,5 @@ ENV PATH=/opt/cargo/bin:/opt/clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04/bin
 RUN rustup target add wasm32-wasi
 RUN rustup toolchain install beta
 RUN rustup default beta
+
+ENV PATH=/root/psibase/build/psidk/bin:$PATH
